@@ -1,5 +1,5 @@
 # SoFurry Author Metadata Downloader
-A tool to download info about an an author's works on SoFurry.
+A tool to download info about an author's works on SoFurry.
 
 Have you ever wanted to find a specific story from an author on
 SoFurry, but had trouble locating it? SoFurry search doesn't allow
