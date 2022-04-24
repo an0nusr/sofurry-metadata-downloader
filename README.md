@@ -29,3 +29,20 @@ python sf-userstories-dl.py -c cookies.txt -o stories.json USERNAME
 Just replace `USERNAME` with your preferred author and you're good to go!
 
 The output will be a JSON file you can easily read and search with a text editor (or jq).
+
+## Using with Storything
+The output of this can be used to build a searchable story index with my other project,
+[Storything](https://github.com/an0nusr/storything). To convert the json file emitted
+by this tool to the csv file needed by storything, you can use jq:
+
+```
+cat stories.json | jq -r '["Title", "Link", "Summary", "Tags"], 
+(.[] | [.title, .link, .description, .tags]) 
+| @csv > stories.csv'
+```
+
+The linebreaks are optional - jq ignores linebreaks in a command.
+
+Once you have your `stories.csv` file, simply place it in the same
+directory as storything's `index.html` file. Storything will read
+the csv and tags and generate a searchable list.
