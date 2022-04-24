@@ -97,7 +97,7 @@ if __name__=='__main__':
         stories.extend([{**x, 'folder': f.title} for x in getStoriesInFolder(f.url)])
 
     # adjust story links to refer to the common SF URLs not the API urls.
-    stories = [{**x, 'link': x['link'].replace("api2.sofurry.com", "sofurry.com")} for x in stories]
+    stories = [{**x, 'link': x['link'].replace("api2.sofurry.com", "www.sofurry.com")} for x in stories]
 
     json.dump(stories, args.output, indent=2)
     logging.info(f"Wrote {len(stories)} to {args.output.name}")
